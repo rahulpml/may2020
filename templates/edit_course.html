@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+<div class="row justify-content-center">
+    <div class="col-md-4">
+        <h1 class="display-4 text-muted">Edit Course</h1>
+        <form action="" method="post">
+            <div class="row mb-3">
+
+            </div>
+            {% csrf_token %}
+            <div class="form-group">
+                <input type="text" class="form-control" id="course" value="{{ course.course_name }}" name="course" placeholder="Course name">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" id="fee" value="{{ course.course_fee }}" name="fee" placeholder="Fee">
+            </div>
+            <div class="row justify-content-center">
+                <button type="submit" class="btn btn-block btn-warning">Save</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}

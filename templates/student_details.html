@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+
+<div class="row justify-content-center w-100">
+    <div class="card-dek ml-5 mr-5 mb-2">
+        <div class="card col-md-12">
+            <div class="card-body">
+                <div class="row w-100">
+                    <div class="col-sm-8">
+                        <h1 class="card-title text-muted">{{ details.student_first_name }} {{ details.student_last_name }}</h1>
+                        <table class="table table-borderless details">
+                            <tbody>
+                                <tr>
+                                    <td class="label">Address</td>
+                                    <td class="pl-4">{{ details.student_address }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="label">Age</td>
+                                    <td class="pl-4">{{ details.student_age }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="label">Date of join</td>
+                                    <td class="pl-4">{{ details.student_joined }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="label">Tutor</td>
+                                    <td class="pl-4">{{ details.tutor.tutor_name }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="label">Course</td>
+                                    <td class="pl-4">{{ details.tutor.course.course_name }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                            <a href="{% url 'show_student' %}" class="text-muted gob"><i class="fa fa-angle-left">  Go back</i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

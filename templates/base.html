@@ -1,0 +1,126 @@
+{% load static %}
+{% load crispy_forms_filters %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'css/collage.css' %}">
+    <title>Document</title>
+    <center><h2><b>COLLEGE MANAGEMENT SYSTEM</b></h2></center>
+    <style>
+        body{
+            background: linear-gradient(to right, #738fc4 28%, #d4accf 100%);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#CollapseNav">
+                    <span class="fa fa-angle-down"></span>
+                </button>
+
+                {% if user.is_authenticated %}
+                    {% if user.is_superuser %}
+                <div class="collapse navbar-collapse" id="CollapseNav">
+                    <ul class="navbar-nav text-center">
+                        <li class="nav-item"><a href="" class="nav-link">HOME</a></li>
+                        <li class="nav-item">
+                            <div class="btn-group">
+                                <a type="button" class="btn btn-muted  dropdown-toggle" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
+                                    ADD
+                            </a>
+                                <div class="dropdown-menu">
+                                    <a href="{% url 'add_student' %}" class="dropdown-item">ADD STUDENTS</a>
+                                    <a href="{% url 'add_tutor' %}" class="dropdown-item">ADD TUTORS</a>
+                                    <a href="{% url 'add_course' %}" class="dropdown-item">ADD COURSE</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <div class="btn-group">
+                                <a type="button" class="btn btn-muted  dropdown-toggle" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
+                                    DETAILS
+                            </a>
+                                <div class="dropdown-menu">
+                                    <a href="{% url 'show_student' %}" class="dropdown-item">STUDENT DETAILS</a>
+                                    <a href="{% url 'show_tutor' %}" class="dropdown-item">TUTOR DETAILS</a>
+                                    <a href="{% url 'show_course' %}" class="dropdown-item">COURSE DETAILS</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item"><a href="{% url 'log_out' %}" class="nav-link">LOG OUT</a></li>
+                        <li class="nav-item"><a href="" class="nav-link disabled text-white"><b>hi, {{ user.username }}
+                                </b></a>
+                        </li>
+                    </div>
+                        {% else %}
+                        <div class="collapse navbar-collapse" id="CollapseNav">
+                            <ul class="navbar-nav text-center">
+                                <li class="nav-item"><a href="" class="nav-link">HOME</a></li>
+                                <li class="nav-item">
+                                    <div class="btn-group">
+                                        <a type="button" class="btn btn-muted  dropdown-toggle" data-toggle="dropdown"
+                                            aria-haspopup="true" aria-expanded="false">
+                                            STUDENTS
+                                    </a>
+                                        <div class="dropdown-menu">
+                                            <a href="{% url 'add_student' %}" class="dropdown-item">ADD STUDENTS</a>
+                                            <a href="{% url 'show_student' %}" class="dropdown-item">STUDENT DETAILS</a>
+                                            <!--<a href="{% url 'add_course' %}" class="dropdown-item">add course</a>
+                                        </div>
+                                    </div>
+                                </li>-->
+                                <li class="nav-item">
+                                    <div class="btn-group">
+                                        <a type="button" class="btn btn-muted  dropdown-toggle" data-toggle="dropdown"
+                                            aria-haspopup="true" aria-expanded="false">
+                                            TUTORS
+                                    </a>
+                                        <div class="dropdown-menu">
+                                            <a href="{% url 'show_tutor' %}" class="dropdown-item">TUTOR DETAILS</a>
+                                           <!--<a href="{% url 'show_tutor' %}" class="dropdown-item">tutor details</a>
+                                            <a href="{% url 'show_course' %}" class="dropdown-item">course details</a>
+                                        </div>
+                                    </div>
+                                </li> -->
+                                <li class="nav-item"><a href="{% url 'log_out' %}" class="nav-link">LOG OUT</a></li>
+                                <li class="nav-item"><a href="" class="nav-link disabled text-white"><b>hi, {{ user.username }}
+                                       , you're in</b></a>
+                                </li>
+                            </div>
+                                {% endif %}
+                {% else %}
+                <div class="collapse navbar-collapse" id="CollapseNav">
+                    <ul class="navbar-nav text-center">
+                        <li class="nav-item"><a href="" class="nav-link">sign up</a></li>
+                        <li class="nav-item"><a href="{% url 'log_in' %}" class="nav-link">login</a></li>
+                        <li class="nav-item"><a href="" class="nav-link">about</a></li>
+                    </ul>
+                </div>
+                {% endif %}
+            </nav>
+        </div>
+        <br>
+        <div class="container-fluid no">
+            {% block content %}
+
+            {% endblock %}
+        </div>
+
+    </div>
+</body>
+
+</html>

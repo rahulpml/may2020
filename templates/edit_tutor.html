@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="row justify-content-center">
+    <div class="col-md-4">
+    <h1 class="display-4 text-muted">Edit Tutor</h1>
+    <form action="" method="post">
+        <div class="row mb-3">
+            
+        </div>
+
+        {% csrf_token %}
+
+        <div class="form-group"><input type="text" class="form-control" value="{{ tutor.tutor_name }}" name="tutor_name" placeholder="Tutor name">
+        </div>
+        <div class="form-group"><select class="form-control" name="course">
+                {% for c in course %}
+                <option value="{{ c.id }}" class="selected">{{ c.course_name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="row justify-content-center">
+            <button class="btn btn-block btn-warning" id="adtu" type="submit">save</button>
+        </div>
+    </form>
+</div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<style>
+    h1{
+        text-align: center;
+        color:rgb(219, 203, 198);
+        background-color: rgb(139, 32, 0);
+    }
+</style>
+
+<div class="row justify-content-center">
+    <div class="col-md-4">
+        <h1 class="display-4 text-muted"><b>REGISTRATION</b></h1>
+        <form action="{% url 'sign_up' %}" method="post">
+            <div class="row mb-3"></div>
+
+
+            {% csrf_token %}
+
+            {% for message in messages %}
+
+            <div class="alert alert-muted text-danger text-center">{{ message }}</div>
+
+            {% endfor %}
+            <div class="form_group"><select name="name" class="form-control">
+                {% for student in students %}
+                <option value="{{ student.id }}">{{ student.student_first_name }} {{ student.student_last_name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+            <div class="form_group"><select name="address" class="form-control">
+                {% for student in students %}
+                <option value="{{ student.id }}">{{ student.student_address }}</option>
+                {% endfor %}
+            </select>
+            </div>
+            <div class="form-group"><input type="text" class="form-control" name="username" placeholder="Username">
+            </div>
+            <div class="form-group"><input type="email" class="form-control" name="email" placeholder="Email">
+            </div>
+            <div class="form-group"><input type="password" class="form-control" name="password" placeholder="Password">
+            </div>
+            <div class="form-group"><input type="password" class="form-control" name="c_password" placeholder="Confirm password">
+            </div>
+            <div class="form-check form-check-inline"><input type="radio" class="form-check-input" id="male" value="male" name="gender"><label for="male" class="form-check-label">Male</label>
+            </div>
+            <div class="form-check form-check-inline"><input type="radio" class="form-check-input" id="female" value="female" name="gender"><label for="female" class="form-check-label">Female</label>
+            </div>
+            <div class="form-group"><input type="text" class="form-control" name="mobile" placeholder="Mobile number">
+            </div>
+            <div class="row justify-content-center">
+                <button type="submit" class="btn btn-block btn-warning mt-2" id="lgbtn">Sign Up</button>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,138 @@
+body {
+    background-color: rgba(143, 162, 184, 0.155);
+    padding: 0;
+    margin: 0;
+}
+
+.navbar {
+    width: 100%;
+}
+
+.navbar-nav {
+    text-transform: capitalize;
+    margin-top: 20px;
+}
+
+.nav-item {
+    border-radius: 20px;
+    padding: 0px 5px;
+}
+
+.nav-item:hover {
+    background-color: #f8f9fa12;
+    transition: ease-in 0.3s;
+}
+
+.navbar-toggler {
+    border: none;
+}
+
+.navbar-toggler:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+form {
+    margin-top: 40px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.215);
+}
+
+.form-control {
+    width: 92%;
+    margin-left: 4%;
+    margin-bottom: 2%;
+    height: 50px;
+    border-radius: 5px;
+}
+
+.btn-block {
+    width: 85%;
+    height: 50px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.display-4 {
+    margin-top: 30px;
+    font-size: xx-large;
+    font-weight: bolder;
+    margin-bottom: -30px;
+    margin-left: 10px;
+}
+
+.footer {
+    background-color: #dee6ed73;
+    margin-top: 800px;
+    overflow: hidden;
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+footer .row {
+    margin-left: 9%;
+}
+
+@media screen and (max-width:600px) {
+    footer .row {
+        margin-left: 40%;
+    }
+}
+
+.card {
+    width: 300px;
+    border-radius: 30px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.215);
+}
+
+.card-title {
+    font-size: 21px;
+}
+
+.details {
+    margin-left: 20%;
+}
+
+.details tr td {
+    padding: 4px 0;
+}
+
+.label {
+    font-weight: bolder;
+    color: #343a40;
+}
+
+.dropdown-toggle {
+    color: rgba(255, 255, 255, .5);
+}
+
+.dropdown-toggle:hover {
+    color: rgb(255 255 255 / 77%);
+}
+
+.dropdown-menu {
+    margin-top: 10px;
+    margin-left: 30px;
+}
+
+.dropdown-item:focus {
+    background-color: transparent;
+    color: #212529;
+}
+
+.gob {
+    margin-left: 60%;
+}
+
+@media screen and (max-width:600px) {
+    .gob {
+        margin-left: 40%;
+    }
+}
+
+.form-check {
+    margin-left: 4%;
+    margin-bottom: 2%;
+
+}
